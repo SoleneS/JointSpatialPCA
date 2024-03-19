@@ -8,7 +8,7 @@ Step0.py
 builds the covariance matrices M_k for k samples from the training data (in our paper, it's the condition E9WT embryos). It concatenates them as a single matrix M_cat that will be used as the input of the matlab function of Cardoso et al.
 
 Step1_call_joint_diagonalization.m
-is a matlab function that calls the Cardoso et al. function for joint diagonalization. Its outputs are the common eigenvectors V.mat and the eigenvalues for each sample, summarized in all_diags.mat
+is a matlab function that calls the Cardoso et al. function for joint diagonalization (joint_diag.m). Its outputs are the common eigenvectors V.mat and the eigenvalues for each sample, summarized in all_diags.mat
 
 Step2.py 
 buids the transformed coordinates on the first and second joint spatial PC directions. It performs gaussian mixture clustering on jsPC1. It calculates the Aikake score and Bayesian inference scores (aic and bic) for number of clusters n=1 to n=9. The user chooses manually the number of clusters after checking these values. Then the script runs this gaussian mixture clustering multiple times (nb_iter) to check the robustness of the clustering upon random initialization
