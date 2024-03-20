@@ -5,7 +5,7 @@ Workflow for the paper "Single-cell morphometrics reveals T-box dependent patter
 There is an input folder with the data of the paper, and an output folder with the output corresponding to the paper's input. The workflow is constituted of 3 steps in python, and one step in matlab that calls the function from Cardoso et al. "Jacobi angles for simultaneous diagonalization"  for joint matrix diagonalization.
 
 Step0.py 
-builds the covariance matrices M_k for k samples from the training data (in our paper, it's the condition E9WT embryos). It concatenates them as a single matrix M_cat that will be used as the input of the matlab function of Cardoso et al.
+builds the criterion matrices M_k for k samples from the training data (in our paper, it's the condition E9WT embryos). M_k=(1/2n)X^T(L+L^T)X, where X is the features matrix and L is the row normalized adjacency matrix, and n the number of nodes. It concatenates them as a single matrix M_cat that will be used as the input of the matlab function of Cardoso et al.
 
 Step1_call_joint_diagonalization.m
 is a matlab function that calls the Cardoso et al. function for joint diagonalization (joint_diag.m). Its outputs are the common eigenvectors V.mat and the eigenvalues for each sample, summarized in all_diags.mat
