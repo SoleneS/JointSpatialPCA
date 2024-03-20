@@ -27,7 +27,7 @@ import copy
 import os
 from scipy.io import savemat
 
-def make_covariance(e):
+def make_criterion(e):
     ###features
     df_features_embryo=df_features_scaled.loc[df_features_scaled['embryo']==e].reset_index(drop=True)
     retained_cells=list(df_features_embryo.id_cell)
@@ -83,7 +83,7 @@ df_features_all=pd.DataFrame()
 i=0
 
 for e in e_ids:
-    M=make_covariance(e)
+    M=make_criterion(e)
     M_cat=np.hstack((M_cat,M))
     i=i+1
     
